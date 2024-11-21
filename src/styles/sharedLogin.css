@@ -1,0 +1,57 @@
+.login-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: #1a1b1e; /* dark background */
+  color: black; /* white text */
+}
+label {
+  color: black; /* white text */
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-button {
+  background-color: #228be6; /* blue color for the button */
+  flex-grow: 1;
+}
+
+.login-button:hover {
+  background-color: #1a73e8; /* slightly different blue on hover */
+}
+
+.login-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.register-link {
+  color: #228be6; /* blue color for the link */
+  text-decoration: none;
+}
+
+.register-link a {
+  color: #228be6; /* ensure the link color */
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+.login-container .mantine-TextInput-root {
+  color: white;
+}
+
+.login-container .mantine-TextInput-root .mantine-Input-input {
+  background-color: #2c2f33; /* darker input background */
+  color: white; /* white text */
+}
+
+.login-container .mantine-TextInput-root .mantine-Input-input:focus {
+  border-color: #228be6; /* blue border on focus */
+}

@@ -1,0 +1,32 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-button {
+  display: flex;
+  align-items: center;
+  margin-top: 0.25rem; /* 4px */
+}
+
+.sidebar-button .icon {
+  margin-right: 8px;
+}
+
+.sidebar-button.selected {
+  background-color: #e0e0e0;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.mantine-Tree-root {
+  display: flex;
+  flex-direction: column; /* This is already the default for flexbox, but good to specify */
+  align-items: center; /* Centers the items horizontally */
+  margin-top: 0.25rem;
+  padding-right: 0.25rem; /* 4px */
+}

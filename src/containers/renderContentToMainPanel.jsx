@@ -1,4 +1,5 @@
 import DisplayPatientReport from "../components/DisplayPatientReport";
+import DisplayPharmacyDetails from "../components/DisplayPharmacyDetails";
 import EditPatientReportPage from "../components/EditPatientReportPage";
 import AddExaminaitonsPage from "../pages/AddExaminationsPage";
 import CreateReportPatientPage from "../pages/AddPatientPage";
@@ -8,6 +9,8 @@ import DisplayReportTypes from "../pages/DisplayReportType";
 
 const renderContent = (selectedRoute, props) => {
   switch (selectedRoute) {
+    case "Pharmacy":
+      return <DisplayPharmacyDetails />;
     case "EditReports":
       return <EditPatientReportPage />;
     case "ViewReports":

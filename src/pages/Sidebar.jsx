@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FiFile, FiHome, FiUsers } from "react-icons/fi";
 import { RiAdminLine } from "react-icons/ri";
+import { LuUsers } from "react-icons/lu";
+
 import "../styles/sidebar.css";
 import RouteButton from "../containers/SidebarRouteButton";
 
@@ -12,6 +14,17 @@ const Sidebar = ({ selectedRoute, setSelectedRoute }) => {
     examination: false,
     reportType: false,
   });
+  const [user, setUser] = useState(null);
+  const getCookie = (name) => {
+    const match = document.cookie.match(
+      new RegExp("(^| )" + name + "=([^;]+)")
+    );
+    return match ? match[2] : null;
+  };
+  useEffect(() => {
+    const userRole = getCookie("user");
+    setUser(userRole);
+  }, []);
 
   const toggleDropdown = (dropdown) => {
     setDropdownStates((prev) => ({
@@ -21,7 +34,9 @@ const Sidebar = ({ selectedRoute, setSelectedRoute }) => {
   };
 
   const handleOnClick = (route) => () => {
-    setSelectedRoute(route); // Update global route state using Zustand
+    console.log(route);
+
+    setSelectedRoute(route);
   };
 
   return (
@@ -41,12 +56,14 @@ const Sidebar = ({ selectedRoute, setSelectedRoute }) => {
       />
       {dropdownStates.report && (
         <div className="dropdown">
-          <RouteButton
-            Icon={FiFile}
-            selected={selectedRoute === "EditReports"}
-            title="Edit Reports"
-            onClick={handleOnClick("EditReports")}
-          />
+          {user == "Pathology" ? (
+            <RouteButton
+              Icon={FiFile}
+              selected={selectedRoute === "EditReports"}
+              title="Edit Reports"
+              onClick={handleOnClick("EditReports")}
+            />
+          ) : null}
           <RouteButton
             Icon={FiFile}
             selected={selectedRoute === "ViewReports"}
@@ -61,13 +78,15 @@ const Sidebar = ({ selectedRoute, setSelectedRoute }) => {
           />
         </div>
       )}
+      {user == "Pathology" ? (
+        <RouteButton
+          Icon={RiAdminLine}
+          selected={selectedRoute === "Admin"}
+          title="Admin"
+          onClick={() => toggleDropdown("admin")}
+        />
+      ) : null}
 
-      <RouteButton
-        Icon={RiAdminLine}
-        selected={selectedRoute === "Admin"}
-        title="Admin"
-        onClick={() => toggleDropdown("admin")}
-      />
       {dropdownStates.admin && (
         <div className="dropdown">
           <RouteButton
@@ -116,6 +135,14 @@ const Sidebar = ({ selectedRoute, setSelectedRoute }) => {
           )}
         </div>
       )}
+      {user == "Pathology" ? (
+        <RouteButton
+          Icon={LuUsers}
+          selected={selectedRoute === "Pharmacy"}
+          title="Pharmacy"
+          onClick={handleOnClick("Pharmacy")}
+        />
+      ) : null}
     </div>
   );
 };

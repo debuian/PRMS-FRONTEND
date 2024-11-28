@@ -85,6 +85,12 @@ const DisplayPatientReport = () => {
     const result = await generatePdfByreportId(report_id);
     if (result.success) {
       toast.success(result.data.message);
+      const link = document.createElement("a");
+      link.href = result.data.pdfLink.trim(); // Ensure there are no leading/trailing spaces
+      link.target = "_blank"; // Open the PDF in a new tab
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     } else {
       toast.error(result.data.message);
     }

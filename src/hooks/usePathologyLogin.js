@@ -29,7 +29,7 @@ const usePathologyLogin = () => {
 
       if (response.ok) {
         toast.success(`logged in successfully`);
-        naviagte("/");
+        naviagte("/admin");
       } else {
         toast.error(data.message);
       }

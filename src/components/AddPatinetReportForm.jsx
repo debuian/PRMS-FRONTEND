@@ -26,6 +26,12 @@ const AddPatientReportForm = ({ patientData, setPatientData }) => {
           value={patientData.last_name}
           onChange={(e) => handleInputChange("last_name", e.target.value)}
         />
+        <TextInput
+          label="Number:"
+          placeholder="Enter patient number"
+          value={patientData.number}
+          onChange={(e) => handleInputChange("number", e.target.value)}
+        />
         <NativeSelect
           label="Gender:"
           data={["Male", "Female", "Others"]}

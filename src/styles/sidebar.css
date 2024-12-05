@@ -30,3 +30,19 @@
   margin-top: 0.25rem;
   padding-right: 0.25rem; /* 4px */
 }
+.LogOutButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.SidebbarContainer {
+  height: 100%; /* Make the container take full viewport height */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.LogOutButton:hover {
+  background-color: #f0f0f0; /* Change to your desired hover color */
+  cursor: pointer;
+}

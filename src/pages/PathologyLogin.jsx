@@ -36,7 +36,10 @@ const PathologyLogin = () => {
           <div className="login-actions">
             <Text size="sm" className="register-link">
               Don't have an account?
-              <a onClick={() => navigate("/")} style={{ marginLeft: "9px" }}>
+              <a
+                onClick={() => navigate("/pathology-signup")}
+                style={{ marginLeft: "9px" }}
+              >
                 Register
               </a>
             </Text>

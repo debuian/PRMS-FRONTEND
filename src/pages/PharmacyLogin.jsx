@@ -19,7 +19,7 @@ const PharmacyLogin = () => {
       const result = await fetchPharmacyLoginAPI(payload);
       if (result.success) {
         toast.success(result.data.message);
-        navigate("/");
+        navigate("/admin");
       } else {
         toast.error(result.data.message);
       }

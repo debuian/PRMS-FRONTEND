@@ -4,6 +4,7 @@ const initialData = {
   first_name: "",
   middle_name: "",
   last_name: "",
+  number: "",
   gender: "Male",
   age: 0,
   examination_id: [],

@@ -4,7 +4,7 @@ import { MantineProvider } from "@mantine/core";
 import App from "./App";
 import "@mantine/core/styles.css";
 import { Toaster } from "react-hot-toast";
-
+import "./main.css";
 const rootElement = document.getElementById("root");
 const root = ReactDOM.createRoot(rootElement);
 

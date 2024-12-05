@@ -12,7 +12,8 @@ const PathologySignup = () => {
   return (
     <Paper className="login-container" padding="xl" radius="md" withBorder>
       <Text size="lg" fw={500} align="center" mb="md">
-        Welcome to PRMS
+        Welcome to PRMS <br />
+        Pathology Sign Up
       </Text>
       <form onSubmit={handleSubmit} className="login-form">
         <TextInput
@@ -35,7 +36,12 @@ const PathologySignup = () => {
         <div className="login-actions">
           <Text size="sm" className="register-link">
             Already have an account?
-            <a onClick={() => navigate("/pathology-login")}>Login</a>
+            <a
+              onClick={() => navigate("/pathology-login")}
+              style={{ marginLeft: "9px", marginRight: "9px" }}
+            >
+              Login
+            </a>
           </Text>
           <Button type="submit" radius="md" className="login-button">
             Sign Up

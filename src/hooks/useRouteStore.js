@@ -1,8 +1,10 @@
 import { create } from "zustand";
 
 const useRouteStore = create((set) => ({
-  selectedRoute: "CreateReport  ",
-  setSelectedRoute: (route) => set({ selectedRoute: route }),
+  selectedRoute: "Dashboard",
+  routeData: null,
+  setSelectedRoute: (route, data = null) =>
+    set({ selectedRoute: route, routeData: data }),
 }));
 
 export default useRouteStore;

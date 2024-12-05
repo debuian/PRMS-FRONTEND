@@ -4,25 +4,19 @@ import "../styles/mainPage.css";
 import renderContent from "../containers/renderContentToMainPanel";
 import useRouteStore from "../hooks/useRouteStore";
 import { useNavigate } from "react-router-dom";
+import getCookieValue from "../utlis/Cookies.js/getCookieValue";
 
 const MainPage = () => {
   const { selectedRoute, setSelectedRoute } = useRouteStore();
   const navigate = useNavigate();
 
-  const getCookie = (name) => {
-    const match = document.cookie.match(
-      new RegExp("(^| )" + name + "=([^;]+)")
-    );
-    return match ? match[2] : null;
-  };
-
   useEffect(() => {
     const cookieName = "loginDetails";
-    const cookieValue = getCookie(cookieName);
+    const cookieValue = getCookieValue(cookieName);
     if (!cookieValue) {
       navigate("/pathology-login");
     }
-  }, [navigate]);
+  }, []);
 
   return (
     <div className="Main">

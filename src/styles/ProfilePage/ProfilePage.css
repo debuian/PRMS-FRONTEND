@@ -1,0 +1,11 @@
+.profileHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 50px;
+  margin-top: 20px;
+}
+nav {
+  width: 100%;
+  background-color: black;
+}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import useDisplayReportTypes from "../hooks/useDisplayReportTypes";
-import { Button, Checkbox } from "@mantine/core";
+import useDisplayReportTypes from "../features/Admin/ReportType/utils/fetchDisplayReportTypes";
+import { Checkbox } from "@mantine/core";
 import fetchExaminationsByReportId from "../containers/fetchExaminationsByReportId";
 
 const DisplaySelectReportType = ({ setExaminationIds }) => {

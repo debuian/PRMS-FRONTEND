@@ -1,14 +1,27 @@
-import DisplayPatientReport from "../components/DisplayPatientReport";
-import DisplayPharmacyDetails from "../components/DisplayPharmacyDetails";
-import EditPatientReportPage from "../components/EditPatientReportPage";
-import AddExaminaitonsPage from "../pages/AddExaminationsPage";
-import CreateReportPatientPage from "../pages/AddPatientPage";
-import AddReportTypes from "../pages/AddReportType";
-import DisplayExaminationsDetails from "../pages/DisplayExaminationsDeatils";
-import DisplayReportTypes from "../pages/DisplayReportType";
+import DisplayPatientReport from "../features/Reports/components/ViewReport/DisplayPatientReport";
+import DisplayPharmacyDetails from "../features/Pharmacy/DisplayPharmacyDetails";
+import EditPatientReportPage from "../features/Reports/components/EditReport/EditPatientReportPage";
+import AddExaminaitonsPage from "../features/Admin/Examination/AddExaminationsPage";
+import CreateReportPatientPage from "../features/Reports/components/CreateReport/AddPatientPage";
+import AddReportTypes from "../features/Admin/ReportType/AddReportType";
+import Dashboard from "../pages/DashBoard/Dashboard";
+import DisplayExaminationsDetails from "../features/Admin/Examination/DisplayExaminationsDeatils";
+import DisplayReportTypes from "../features/Admin/ReportType/DisplayReportType";
+import Profile from "../pages/Profile/Profile";
+import CreateProfile from "../features/Profile/CreateProfile";
+import UpdateProfile from "../features/Profile/UpdateProfile";
+import useRouteStore from "../hooks/useRouteStore";
 
-const renderContent = (selectedRoute, props) => {
+const renderContent = (selectedRoute) => {
+  const { routeData } = useRouteStore();
+
   switch (selectedRoute) {
+    case "UpdateProfile":
+      return <UpdateProfile data={routeData.data} />;
+    case "CreateProfile":
+      return <CreateProfile />;
+    case "Profile":
+      return <Profile />;
     case "Pharmacy":
       return <DisplayPharmacyDetails />;
     case "EditReports":
@@ -16,7 +29,7 @@ const renderContent = (selectedRoute, props) => {
     case "ViewReports":
       return <DisplayPatientReport />;
     case "Dashboard":
-      return <div>Welcome to the Dashboard</div>;
+      return <Dashboard />;
     case "ViewExaminations":
       return <DisplayExaminationsDetails />;
     case "CreateExamination":
@@ -27,9 +40,8 @@ const renderContent = (selectedRoute, props) => {
       return <DisplayReportTypes />;
     case "CreateReport":
       return <CreateReportPatientPage />;
-
     case "Admin":
-      return <div>Admin Panel</div>;
+      return <div> Admin Panel</div>;
     default:
       return <div>Select a route from the sidebar</div>;
   }
